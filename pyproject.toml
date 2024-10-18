@@ -1,0 +1,60 @@
+[tool.poetry]
+name = "opentelemetry-redis-llm-sample"
+version = "0.1.0"
+description = "This demo showcases OpenTelemetry distributed tracing of a sample GLLM app that uses redis has a backend. This setup relies on Jaeger to receive and visualize traces."
+authors = ["Redis Performance Group <performance@redis.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+
+# Add OpenTelemetry SDK from GitHub
+opentelemetry-sdk = { git = "https://github.com/open-telemetry/opentelemetry-python.git", subdirectory = "opentelemetry-sdk" }
+
+# Add OpenTelemetry API from GitHub
+opentelemetry-api = { git = "https://github.com/open-telemetry/opentelemetry-python.git", subdirectory = "opentelemetry-api" }
+
+# Add OpenTelemetry API from GitHub
+opentelemetry-proto = { git = "https://github.com/open-telemetry/opentelemetry-python.git", subdirectory = "opentelemetry-proto" }
+
+# opentelemetry-exporter-otlp-proto-common
+opentelemetry-exporter-otlp-proto-common = { git = "https://github.com/open-telemetry/opentelemetry-python.git", subdirectory = "exporter/opentelemetry-exporter-otlp-proto-common" }
+
+# Add OpenTelemetry Exporter from Github
+opentelemetry-exporter-otlp-proto-grpc = { git = "https://github.com/open-telemetry/opentelemetry-python.git", subdirectory = "exporter/opentelemetry-exporter-otlp-proto-grpc" }
+
+# Add OpenTelemetry Exporter from Github
+opentelemetry-exporter-otlp-proto-http = { git = "https://github.com/open-telemetry/opentelemetry-python.git", subdirectory = "exporter/opentelemetry-exporter-otlp-proto-http" }
+
+opentelemetry-exporter-otlp = { git = "https://github.com/open-telemetry/opentelemetry-python.git", subdirectory = "exporter/opentelemetry-exporter-otlp" }
+
+# Add OpenTelemetry Semantic Conventions from GitHub
+opentelemetry-semantic-conventions = { git = "https://github.com/open-telemetry/opentelemetry-python.git#0.48b0", subdirectory = "opentelemetry-semantic-conventions" }
+
+# Add OpenTelemetry Instrumentation from GitHub
+opentelemetry-instrumentation = { git = "https://github.com/open-telemetry/opentelemetry-python-contrib.git", subdirectory = "opentelemetry-instrumentation" }
+
+# Add OpenTelemetry Redis Instrumentation from GitHub
+opentelemetry-instrumentation-redis = { git = "https://github.com/open-telemetry/opentelemetry-python-contrib.git", subdirectory = "instrumentation/opentelemetry-instrumentation-redis" }
+
+opentelemetry-instrumentation-openai = { git = "https://github.com/filipecosta90/openllmetry.git", subdirectory = "packages/opentelemetry-instrumentation-openai"}
+
+redis = "^5.1.1"
+
+# required due to issue #
+# Fixed missing required positional argument: 'dtype' in buffer_to_array"
+langchain-redis = { git = "https://github.com/filipecosta90/langchain-redis.git", subdirectory = "libs/redis"}
+
+langchain-openai = "^0.2.2"
+langchain = "^0.3.3"
+langchain-community = "^0.3.2"
+redisvl = "^0.3.5"
+
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
